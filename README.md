@@ -12,15 +12,16 @@ This project also received the Project of the Month award at Aptech, making it e
 
 ##Achievement
 🏆 Project of the Month at Aptech, recognizing it as a standout project.
-![Achievement](Project Screenshots/5.jpeg)
+![Achievement](Project_Screenshots/5.jpeg)
 
-##Project Screenshots
-![project ss](Project Screenshots/1.png)
-![project ss](Project Screenshots/3.png)
-![project ss](Project Screenshots/origami.gif)
-![project ss](Project Screenshots/p3.gif)
+## Project Screenshots
+![project ss](Project Screenshots/1.png),
 
-##Technologies Used
+![project ss](Project Screenshots/3.png),
+![project ss](Project Screenshots/origami.gif),
+![project ss](Project Screenshots/p3.gif),
+
+## Technologies Used
 1. HTML
 2. CSS
 3. Bootstrap
