@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids Origami</title>
+    <link rel="icon" href="data.img/icon.png">
+    <!-- boot cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <!-- js -->
+    <script async src="js/jquery.min.js"></script>
+    <script defer src="js/reavel.js"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@700&family=Kalam:wght@400;700&family=Pacifico&family=Poppins:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+
+        }
+
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            background-color: #F5F5F5;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+            background-color: #F5F5F5;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #AAA;
+            border-radius: 10px;
+            background-image: -webkit-linear-gradient(90deg,
+                    rgba(0, 0, 0, .2) 25%,
+                    transparent 25%,
+                    transparent 50%,
+                    rgba(0, 0, 0, .2) 50%,
+                    rgba(0, 0, 0, .2) 75%,
+                    transparent 75%,
+                    transparent)
+        }
+
+        .carousel-item {
+            height: 65vh;
+            min-height: 200px;
+        }
+
+        .carousel-caption {
+            bottom: 30%;
+            z-index: 2;
+        }
+
+
+        .carousel-inner::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+
+        .scrolling-navbar {
+            transition: 1.2s ease;
+        }
+
+        .nav-effect {
+            transform: scale(0.9);
+            transition: 1s ease;
+        }
+
+        .nav-effect:hover {
+            opacity: 0.9;
+            transform: scale(1);
+            text-shadow: 1px 1px 2px #FF5F1F, 0 0 2px #f57b0076, 0 0 5px #f57b0079;
+        }
+
+        .row {
+            --bs-gutter-x: 0.2rem;
+        }
+
+        .fs-leter {
+            font-family: 'Pacifico', cursive;
+            font-size: calc(60px + 0.75vw);
+            line-height: 0.72;
+            float: left;
+            padding: 8px 8px 0 5px;
+            color: #F57C00;
+        }
+        .txt-ani {
+            position: relative;
+            margin-bottom: 4%;
+        }
+        .txt-ani h2 {
+            font-size: 4vw;
+            position: absolute;
+        }
+        .txt-ani h2:nth-child(1) {
+            color: transparent;
+            -webkit-text-stroke: 1px #000;
+        }
+        .txt-ani h2:nth-child(2) {
+            color: #f57b00ae;
+            animation: animate 3s ease-in-out infinite;
+        }
+        #button {
+            display: inline-block;
+            background-color: #F57C00;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            border-radius: 4px;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            transition: .3s,
+                .5s, .5s;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+
+        #button::after {
+            content: "";
+            font-weight: normal;
+            line-height: 50px;
+            color: #fff;
+        }
+
+        #button i {
+            font-size: 2em;
+            background-color: transparent;
+            color: white;
+
+
+        }
+
+        #button:hover {
+            cursor: pointer;
+            background-color: #aaa;
+        }
+
+        #button:active {
+            background-color: #FF5F1F;
+        }
+
+        #button.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+
+
+        @keyframes animate {
+
+            0%,
+            100% {
+                clip-path: polygon(0% 45%, 16% 44%, 33% 50%, 54% 60%, 70% 61%, 84% 59%, 100% 52%, 100% 100%, 0% 100%);
+            }
+
+            50% {
+                clip-path: polygon(0% 60%, 15% 65%, 34% 66%, 51% 62%, 67% 50%, 84% 45%, 100% 46%, 100% 100%, 0% 100%);
+            }
+        }
+
+        @media (max-width:768px) {
+            .carousel-item {
+                height: 60vh;
+                min-height: 300px;
+            }
+
+            .carousel-caption {
+                bottom: 30%;
+            }
+
+            .txt-ani {
+                margin-bottom: 7%;
+            }
+
+            .txt-ani h2 {
+                font-size: 2rem;
+            }
+
+        }
+
+        @media (max-width:400px) {
+            .carousel-caption {
+                font-size: 50%;
+
+
+            }
+
+            .carousel-item {
+                height: 60vh;
+                min-height: 300px;
+            }
+
+            .txt-ani {
+
+                margin-bottom: 3%;
+
+            }
+
+            .txt-ani h2 {
+                font-size: 10vw;
+            }
+
+            #button {
+                bottom: 12%;
+                right: 20px;
+            }
+        }
+
+        .reveal {
+            position: relative;
+            transform: translateY(150px);
+            opacity: 0;
+            transition: all 2s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fs-5 fixed-top scrolling-navbar"
+        style="background-color: #f8f9fa;">
+        <div class="container p-2">
+            <a class="navbar-brand Fw-bolder text-decoration-underline p-1" href="index.html"><img
+                    src="data.img/logoFor1.png" style="width: 16vmax;" alt="logo.icon"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav m-auto p-2">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link nav-effect dropdown-toggle " href="Starthere.html"
+                            id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Start here!
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-light bg-light" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="Starthere.html">Beginners-level</a></li>
+                            <li><a class="dropdown-item" href="Advanced level.html">Advance-level</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-effect" href="AboutUs.html">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link nav-effect dropdown-toggle" href="kidsori.html" id="navbarDropdownMenuLink"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                            style="text-shadow: 1px 1px 2px #FF5F1F, 0 0 2px #f57b0076, 0 0 5px #f57b0079;transform: scale(1);">
+                            Instructions
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-light bg-light" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item active text-dark" style="background-color: #f2f2f2b1;"
+                                    href="kidsori.html">Origami For Kids</a></li>
+                            <li><a class="dropdown-item" href="Crane-intro.html">Traditional Origami Crane</a></li>
+                            <li><a class="dropdown-item" href="easyori.html">Easy Origami </a></li>
+                            <li><a class="dropdown-item" href="diagrame.html">Diagrams</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-effect" href="blog.html">Blog & Showcase</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link nav-effect" href="Contact.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="data.img/Kidsss.jpg" class="d-block w-100" style="width: 100%; height: 100%;" alt="...">
+                <div class="carousel-caption d-block">
+                    <h1 class="fw-bolder fs-2">Origami Instructions For Kids</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="button"><i class="bi bi-rocket"></i></a>
+    <!-- infooo -->
+    <section style="margin-top: 10%;">
+        <div class="container mt-5 reveal ">
+            <div class="card col-md-12 p-3 m-1" style="border: none;">
+                <div class="row ">
+                    <div class="txt-ani">
+                        <h2>Kids Origami</h2>
+                        <h2>Kids Origami</h2>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-block">
+                            <p class="fs-5 mt-5">
+                                <span class="fs-leter">T</span>
+                                hese origami instructions for kids are fun and easy to make. Each of these origami
+                                models can be
+                                folded with children. Very young children may need a hand with some of the folds. All
+                                you need
+                                to make these easy origami models is a single sheet of paper. It doesn’t matter if you
+                                only have
+                                regular printer paper to work with.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <img class="w-100" src="data.img/kids-001.jpg" data-enlargable width="100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="margin-top: 10%;">
+
+        <div class="container mt-3 reveal ">
+            <div class="row">
+                <div class="card col-md-12 p-3 m-1" style="border: none;">
+                    <div class="row ">
+                        <div class="txt-ani mb-5">
+                            <h2>Tips for folding </h2>
+                            <h2>Tips for folding </h2>
+                        </div>
+                        <p class="fs-5 mt-5">Here are a couple of tips if you are an adult or older sibling who would
+                            like to help young kids with their origami projects.</p>
+                        <div class="col-md-8">
+                            <div class="card-block">
+                                <p class="fs-5 mt-5">
+                                    <span class="fs-leter">T</span>
+                                    he most important thing to remember is to have fun! Origami is not meant to be a
+                                    stressful or unpleasant activity, if the child is unhappy while folding, you should
+                                    try a simpler origami model. Before trying to help anyone with an origami project,
+                                    make sure you know what you are doing, take a few minutes beforehand to fold the
+                                    origami model at least once so that you can help the other person.
+                                </p>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <img class="w-100" data-enlargable width="100"
+                                style="border-radius: 100% 0% 100% 0% / 35% 65% 35% 65%  ;" src="data.img/kids2.webp">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <p class="fs-5">It’s hard to follow someone’s instruction from opposite, try sitting next to the child,
+                    so that the paper is the same way up as theirs. Fold one step at a time, making sure they have
+                    completed the step before continuing.</p>
+                <p class="fs-5">
+                    The absolute best origami model to start kids off with, would be the simple <span><a
+                            href="Starthere.html" class="text-decoration-none">origami For All</a></span> , it’s simple
+                    enough but has more than just a
+                    couple of folds, it even includes a squash fold, they can draw windows and doors onto it after it’s
+                    done, you could make an entire street if you have lots of children!
+                </p>
+                <p class="fs-6 fw-bold text-center">With all that said, here are the origami instructions which kids
+                    will enjoy folding! </p>
+            </div>
+        </div>
+    </section>
+    <section class="img reveal" style="margin-top: 10%;overflow: hidden;">
+        <div style="width: 100%; ">
+            <div class="container w-50 d-flex align-content-center justify-content-center">
+                <img src="data.img/EyesFort.gif" style="width: 100%;height: auto;" alt="EyesFort">
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class=" text-center mt-5 " style="background-color:#ff9349;border-radius: 52% 48% 0% 0% / 14% 13% 10% 10%;">
+        <div class="container p-4 ">
+
+            <!-- Section: Social media -->
+            <section class="mb-4">
+                <!-- Facebook -->
+                <a class="m-1"
+                    style="background-color: transparent;border: none; cursor: pointer;"
+                    href="#!" role="button"><img src="data.img/Facebook_Circle_Filled_R.png" style="width: 3.4rem;"
+                        alt="Facebook.icon"></a>
+
+                <!-- Twitter -->
+                <a class="m-1"
+                    style="background-color: transparent;border: none; cursor: pointer;"
+                    href="#!" role="button"><img src="data.img/Twitter_Box_Hollow_R Shadowless.png"
+                        style="width: 3.4rem;" alt="Twitter.icon"></a>
+
+                <!-- Instagram -->
+                <a class="m-1"
+                    style="background-color: transparent;border: none; cursor: pointer;"
+                    href="#!" role="button"><img src="data.img/Instagram_Box_Filled_L Shadowless.png"
+                        style="width: 3.4rem;" alt="Instagram.icon"></a>
+
+                <!-- Linkedin -->
+                <a class="m-1"
+                    style="background-color: transparent;border: none; cursor: pointer;"
+                    href="#!" role="button"><img src="data.img/Linkedin_Filled_R Shadowless.png" style="width: 3.4rem;"
+                        alt="Linkedin.icon"></a>
+                <!-- Youtube -->
+
+                <a class="m-1"
+                    style="background-color: transparent;border: none; cursor: pointer;"
+                    href="#!" role="button"><img src="data.img/YouTube_Mark_Hollow_R.png" style="width: 3.4rem;"
+                        alt="YouTube.icon"></a>
+                <!-- pinteres-->
+                <a class="m-1"
+                    style="background-color: transparent;border: none; cursor: pointer;"
+                    href="#!" role="button"><img src="data.img/Pinterest_Hollow_R.png" style="width: 3.4rem;"
+                        alt="Pinterest.icon"></a>
+            </section>
+            <section class="mt-1">
+                <!--Grid row-->
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4 mb-md-0" style="text-align: center;">
+                        <h1 class="fs-2">
+                            Origami-The Paper Folding Art
+                        </h1>
+                        <p class="fs-6">Life is full of creativity and fun if you know the art of origami. <span><img
+                                    src="data.img/foot1.png" style="width: 3rem;" alt="About1"></span></p>
+                        <img src="data.img/About1.gif" style="width: 60%;" alt="About1">
+                    </div>
+
+
+
+                    <div class="col-lg-4 col-md-6 mb-4 mb-md-0"
+                        style="background-image: url(data.img/ff2.gif); background-size: 70% 100%; background-repeat: no-repeat; background-position: center;">
+                        <h5 class="text-uppercase">Navigation</h5>
+
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="AboutUs.html" class="text-dark text-decoration-none fs-6">About</a>
+                            </li>
+                            <li>
+                                <a href="kidsori.html" class="text-dark text-decoration-none fs-6">Instructions</a>
+                            </li>
+                            <li>
+                                <a href="easyori.html" class="text-dark text-decoration-none fs-6">Easy Origami</a>
+                            </li>
+                            <li>
+                                <a href="diagrame.html" class="text-dark text-decoration-none fs-6">Diagrams</a>
+                            </li>
+                            <li>
+                                <a href="blog.html" class="text-dark text-decoration-none fs-6">Blogs And Showcase</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-md-pt-2 mb-4 mb-md-0"
+                        style="background-image: url(data.img/ff4.webp); background-size: 70% 100%; background-repeat: no-repeat; background-position: center;">
+                        <h5 class="text-uppercase">Contact</h5>
+
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="#!" class="text-dark text-decoration-none fs-6"></a>
+                            </li>
+                            <li>
+                                <a href="Contact.html" class="text-dark text-decoration-none fs-6">Contact Us</a>
+                            </li>
+                            <li>
+                                <a href="Feed-back.html" class="text-dark text-decoration-none fs-6">Feedback</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-dark text-decoration-none fs-6"><img
+                                        src="data.img/ori-foot2.png" style="width: 5rem;" alt="ori-foot2"></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center p-3 text-wrap" style="background-color: rgba(0, 0, 0, 0.2)">
+            Copyright © <span id="year">2023</span>:
+            <a class="text-dark" href="index.html">“OrigamiForAll”.com <span><img src="data.img/copy-r.png"
+                        style="width: 4rem;" alt="icon"></span></a>
+        </div>
+    </footer>
+</body>
+
+</html>

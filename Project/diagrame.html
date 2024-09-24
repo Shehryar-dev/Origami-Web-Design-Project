@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagrams</title>
+    <link rel="icon" href="data.img/icon.png">
+    <!-- icon -->
+    <!-- bootstrap cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <!-- jquery cdn -->
+    <!-- js functions-->
+    <script async src="js/jquery.min.js"></script>
+    <script defer src="js/reavel.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@700&family=Kalam:wght@400;700&family=Pacifico&family=Poppins:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffffff;
+
+        }
+
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            background-color: #F5F5F5;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+            background-color: #F5F5F5;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #AAA;
+            border-radius: 10px;
+            background-image: -webkit-linear-gradient(90deg,
+                    rgba(0, 0, 0, .2) 25%,
+                    transparent 25%,
+                    transparent 50%,
+                    rgba(0, 0, 0, .2) 50%,
+                    rgba(0, 0, 0, .2) 75%,
+                    transparent 75%,
+                    transparent)
+        }
+
+        .carousel-item {
+            height: 65vh;
+            min-height: 200px;
+        }
+
+        .carousel-caption {
+            bottom: 30%;
+            z-index: 2;
+        }
+
+
+        .carousel-inner::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .scrolling-navbar {
+            transition: 1.2s ease;
+        }
+
+        .nav-effect {
+            transform: scale(0.9);
+            transition: 1s ease;
+            font-weight: 500;
+        }
+
+        .nav-effect:hover {
+            opacity: 0.9;
+            transform: scale(1);
+            text-shadow: 1px 1px 2px #FF5F1F, 0 0 2px #f57b0076, 0 0 5px #f57b0079;
+        }
+
+        /* button */
+        #button {
+            display: inline-block;
+            background-color: #F57C00;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            border-radius: 4px;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            transition: .3s,
+                .5s, .5s;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+
+        #button::after {
+            content: "";
+            font-weight: normal;
+            line-height: 50px;
+            color: #fff;
+        }
+
+        #button i {
+            font-size: 2em;
+            background-color: transparent;
+            color: white;
+        }
+
+        #button:hover {
+            cursor: pointer;
+            background-color: #aaa;
+        }
+
+        #button:active {
+            background-color: #FF5F1F;
+        }
+
+        #button.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .fs-leter {
+            font-family: 'Niconne', cursive;
+            font-size: calc(60px + 0.75vw);
+            line-height: 0.72;
+            float: left;
+            padding: 8px 8px 0 5px;
+            color: #F57C00;
+        }
+
+        .txt-ani {
+            position: relative;
+            margin-bottom: 3%;
+        }
+
+        .txt-ani h2 {
+            font-size: 4vw;
+            position: absolute;
+        }
+
+        .txt-ani h2:nth-child(1) {
+            color: transparent;
+            -webkit-text-stroke: 1px #000;
+        }
+
+        .txt-ani h2:nth-child(2) {
+            color: #f57b00;
+            animation: animate 3s ease-in-out infinite;
+        }
+
+
+        @keyframes animate {
+
+            0%,
+            100% {
+                clip-path: polygon(0% 45%, 16% 44%, 33% 50%, 54% 60%, 70% 61%, 84% 59%, 100% 52%, 100% 100%, 0% 100%);
+            }
+
+            50% {
+                clip-path: polygon(0% 60%, 15% 65%, 34% 66%, 51% 62%, 67% 50%, 84% 45%, 100% 46%, 100% 100%, 0% 100%);
+            }
+        }
+
+        /*=======Effects=====*/
+        .diagrame {
+            /* margin-right: 1rem; */
+            max-width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .diagrame img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            transition: 2s ease;
+
+        }
+
+        .diagrame img:hover {
+            transform: scale(1.1);
+        }
+
+        .diagrame .overlay {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.441);
+            overflow: hidden;
+            transition: 1s ease;
+            opacity: 1;
+        }
+
+        .diagrame:hover .overlay {
+            width: 0;
+            opacity: 0;
+        }
+
+        .overlay .text {
+            position: absolute;
+            color: #fff;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+        }
+
+        /*=========diagrames effect======End */
+
+        @media (max-width:768px) {
+
+            .carousel-item {
+                height: 60vh;
+                min-height: 300px;
+            }
+
+            .carousel-caption {
+                bottom: 30%;
+            }
+
+            .txt-ani {
+
+                margin-bottom: 15%;
+
+            }
+
+            .txt-ani h2 {
+                font-size: 3.5rem;
+            }
+
+            .txt-ani h2:nth-child(1) {
+                -webkit-text-stroke: 1px #000;
+            }
+
+            .diagrame {
+                width: 10rem;
+                margin: auto;
+            }
+
+
+        }
+
+        @media (max-width:400px) {
+            body {
+                font-size: 100%;
+            }
+
+            .carousel-caption {
+                font-size: 50%;
+
+
+            }
+
+            .carousel-item {
+                height: 100vh;
+                min-height: 300px;
+            }
+
+            .txt-ani {
+
+                margin-bottom: 15%;
+
+            }
+
+            .txt-ani h2 {
+                font-size: 2rem;
+            }
+
+            #button {
+                bottom: 12%;
+                right: 20px;
+            }
+
+
+        }
+
+        .reveal {
+            position: relative;
+            transform: translateY(150px);
+            opacity: 0;
+            transition: all 2s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+
+        .row {
+            --bs-gutter-x: 0.1rem;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fs-5 fixed-top scrolling-navbar"
+        style="background-color: #f8f9fa;">
+        <div class="container p-2">
+            <a class="navbar-brand Fw-bolder text-decoration-underline p-1" href="index.html"><img
+                    src="data.img/logoFor1.png" style="width: 16vmax;" alt="logo.icon"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav m-auto p-2">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link nav-effect dropdown-toggle " href="Starthere.html"
+                            id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Start here!
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-light bg-light" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="Starthere.html">Beginners-level</a></li>
+                            <li><a class="dropdown-item" href="Advanced level.html">Advance-level</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-effect" href="AboutUs.html">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link nav-effect dropdown-toggle" href="kidsori.html" id="navbarDropdownMenuLink"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                            style="text-shadow: 1px 1px 2px #FF5F1F, 0 0 2px #f57b0076, 0 0 5px #f57b0079;transform: scale(1);">
+                            Instructions
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-light bg-light" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item " href="kidsori.html">Origami For Kids</a></li>
+                            <li><a class="dropdown-item" href="Crane-intro.html">Traditional Origami Crane</a></li>
+                            <li><a class="dropdown-item" href="easyori.html">Easy Origami </a></li>
+                            <li><a class="dropdown-item active text-dark" style="background-color: #f2f2f2b1;"
+                                    href="diagrame.html">Diagrams</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-effect" href="blog.html">Blog & Showcase</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link nav-effect" href="Contact.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="data.img/diagrame-ng.jpg" class="d-block w-100" style="width: 100%; height: 100%;" alt="...">
+                <div class="carousel-caption d-block">
+                    <h1 class="fw-bolder fs-2"> Origami Diagrams</h1>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <a id="button"><i class="bi bi-rocket"></i></a>
+    <!-- =====Animal===== -->
+    <section style="margin-top: 5%;">
+        <div class="container mt-5 w-75 reveal">
+            <div class="row mb-5">
+                <div class="txt-ani">
+                    <h2>Animal</h2>
+                    <h2>Animal</h2>
+                </div>
+            </div>
+            <div class="row mt-1">
+                <div class="col col-lg-2 col-md-4 mt-lg-5">
+                    <div class="diagrame">
+                        <img src="data.img/bulldog.webp" data-enlargable alt="bulldog">
+                        <div class="overlay">
+                            <h3 class="text">BULLDog</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/camel.webp" data-enlargable alt="camel">
+                        <div class="overlay">
+                            <h3 class="text">camel</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/cat.webp" data-enlargable alt="cat">
+                        <div class="overlay">
+                            <h3 class="text">CAT</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/cat-face.webp" data-enlargable alt="cat-face">
+                        <div class="overlay">
+                            <h3 class="text">cat face</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/chameleon.webp" data-enlargable alt="chameleon">
+                        <div class="overlay">
+                            <h3 class="text">chameleon</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/cow.webp" data-enlargable alt="cow">
+                        <div class="overlay">
+                            <h3 class="text">cow</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- =====2nd===== -->
+            <div class="row ">
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/crocodile.webp" data-enlargable alt="crocodile">
+                        <div class="overlay">
+                            <h3 class="text">crocodile</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/daschund.webp" data-enlargable alt="daschund">
+                        <div class="overlay">
+                            <h3 class="text">daschund</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/puppy.webp" data-enlargable alt="puppy">
+                        <div class="overlay">
+                            <h3 class="text">puppy</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/elephant.webp" data-enlargable alt="elephant">
+                        <div class="overlay">
+                            <h3 class="text">elephant</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/flying-squirrel.webp" data-enlargable alt="flying-squirrel">
+                        <div class="overlay">
+                            <h3 class="text">flying squirrel</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/fox.webp" data-enlargable alt="fox">
+                        <div class="overlay">
+                            <h3 class="text">fox</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- =====3rd===== -->
+            <div class="row ">
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/frog.webp" data-enlargable alt="frog.webp">
+                        <div class="overlay">
+                            <h3 class="text"> frog</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/giraffe.webp" data-enlargable alt="giraffe">
+                        <div class="overlay">
+                            <h3 class="text">giraffe</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/giraffe-1.webp" data-enlargable alt="giraffe-1">
+                        <div class="overlay">
+                            <h3 class="text">giraffe</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/goat.webp" data-enlargable alt="goat">
+                        <div class="overlay">
+                            <h3 class="text">goat</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/gorilla.webp" data-enlargable alt="gorilla">
+                        <div class="overlay">
+                            <h3 class="text">gorilla</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/gorilla-face.webp" data-enlargable alt="gorilla-face">
+                        <div class="overlay">
+                            <h3 class="text">gorilla-face</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- =====4th===== -->
+            <div class="row ">
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/hippo.webp" data-enlargable alt="hippo.webp">
+                        <div class="overlay">
+                            <h3 class="text"> hippo</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/horse.webp" data-enlargable alt="horse">
+                        <div class="overlay">
+                            <h3 class="text">horse</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/kitty.webp" data-enlargable alt="kitty">
+                        <div class="overlay">
+                            <h3 class="text">kitty</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/koala.webp" data-enlargable alt="koala">
+                        <div class="overlay">
+                            <h3 class="text">koala</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/lion.webp" data-enlargable alt="lion">
+                        <div class="overlay">
+                            <h3 class="text">lion</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/mouse.webp" data-enlargable alt="mouse">
+                        <div class="overlay">
+                            <h3 class="text">mouse</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- =====5th===== -->
+            <div class="row ">
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/mouse-1.webp" data-enlargable alt="mouse">
+                        <div class="overlay">
+                            <h3 class="text"> mouse</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/panda.webp" data-enlargable alt="panda">
+                        <div class="overlay">
+                            <h3 class="text">panda</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/platypus.webp" data-enlargable alt="paltypus">
+                        <div class="overlay">
+                            <h3 class="text">platypus</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/pomeranian.webp" data-enlargable alt="pomeranian">
+                        <div class="overlay">
+                            <h3 class="text">pomeranian</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/Rabbit.webp" data-enlargable alt="Rabbit">
+                        <div class="overlay">
+                            <h3 class="text">Rabbit</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/rhino.webp" data-enlargable alt="rhino">
+                        <div class="overlay">
+                            <h3 class="text">rhino</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- =====6th===== -->
+            <div class="row ">
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/scottie-dog.webp" data-enlargable alt="scottie-dog">
+                        <div class="overlay">
+                            <h3 class="text"> scottie dog</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/seal.webp" data-enlargable alt="seal">
+                        <div class="overlay">
+                            <h3 class="text">seal</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/sheep.webp" data-enlargable alt="sheep">
+                        <div class="overlay">
+                            <h3 class="text">sheep</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/siamese-cat.webp" data-enlargable alt="siamese cat">
+                        <div class="overlay">
+                            <h3 class="text">siamese cat</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/snake.webp" data-enlargable alt="snake">
+                        <div class="overlay">
+                            <h3 class="text">snake</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/teddy.webp" data-enlargable alt="teddy">
+                        <div class="overlay">
+                            <h3 class="text">teddy</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- =====7th===== -->
+            <div class="row ">
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/tadpole.webp" data-enlargable alt="tadpole.webp">
+                        <div class="overlay">
+                            <h3 class="text"> tadpole</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/squirrel.webp" data-enlargable alt="squirrel.webp">
+                        <div class="overlay">
+                            <h3 class="text">squirrel</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/turtle.webp" data-enlargable alt="turtle.webp">
+                        <div class="overlay">
+                            <h3 class="text">turtle</h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--=====End=====-->
+        </div>
+
+    </section>
+    <!-- =====Bird===== -->
+    <section style="margin-top: 5%;">
+        <div class="container mt-5 w-75 reveal">
+            <div class="row mb-5">
+                <div class="txt-ani">
+                    <h2>Birds</h2>
+                    <h2>Birds</h2>
+                </div>
+            </div>
+            <div class="row mt-1">
+                <div class="col col-lg-2 col-md-4 mt-lg-5">
+                    <div class="diagrame">
+                        <img src="data.img/bird.webp" data-enlargable alt="bird">
+                        <div class="overlay">
+                            <h3 class="text">traditional bird</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/chicken.webp" data-enlargable alt="chicken">
+                        <div class="overlay">
+                            <h3 class="text">chicken</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/duck.webp" data-enlargable alt="duck">
+                        <div class="overlay">
+                            <h3 class="text">duck</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/duck-1.webp" data-enlargable alt="duck-1.webp">
+                        <div class="overlay">
+                            <h3 class="text">duck</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/flying-duck.webp" data-enlargable alt="flying-duck.webp">
+                        <div class="overlay">
+                            <h3 class="text">flying duck</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/ostrich.webp" data-enlargable alt="ostrich">
+                        <div class="overlay">
+                            <h3 class="text">ostrich</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- =====2nd===== -->
+            <div class="row ">
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/owl.webp" data-enlargable alt="owl.webp">
+                        <div class="overlay">
+                            <h3 class="text">owl</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/owl-1.webp" data-enlargable alt="owl-1.webp">
+                        <div class="overlay">
+                            <h3 class="text">owl</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/owl-2.webp" data-enlargable alt="owl-2.webp">
+                        <div class="overlay">
+                            <h3 class="text">owl</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/parrot.webp" data-enlargable alt="parrot.webp">
+                        <div class="overlay">
+                            <h3 class="text">parrot</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/pelican.webp" data-enlargable alt="pelican.webp">
+                        <div class="overlay">
+                            <h3 class="text">pelican</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/penguin-baby.webp" data-enlargable alt="penguin-baby.webp">
+                        <div class="overlay">
+                            <h3 class="text">penguin baby</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- =====3rd===== -->
+            <div class="row ">
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/penguin.webp" data-enlargable alt="pengui.webp">
+                        <div class="overlay">
+                            <h3 class="text">penguin</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/penguin-face.webp" data-enlargable alt="owl-1.webp">
+                        <div class="overlay">
+                            <h3 class="text">penguin face</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/pigeon.webp" data-enlargable alt="pigeon.webp">
+                        <div class="overlay">
+                            <h3 class="text">pigeon</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/pigeon-1.webp" data-enlargable alt="pigeon-1.webp">
+                        <div class="overlay">
+                            <h3 class="text">pigeon</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/sparrow.webp" data-enlargable alt="sparrow.webp">
+                        <div class="overlay">
+                            <h3 class="text">sparrow</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/swan.webp" data-enlargable alt="swan.webp">
+                        <div class="overlay">
+                            <h3 class="text">swan</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- =====4th===== -->
+            <div class="row ">
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/swallow.webp" data-enlargable alt="swallow.webp">
+                        <div class="overlay">
+                            <h3 class="text">swallow</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/sparrow-1.webp" data-enlargable alt="owl-1.webp">
+                        <div class="overlay">
+                            <h3 class="text">sparrow</h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- =====end===== -->
+        </div>
+    </section>
+    <!-- =====Sea creatures===== -->
+    <section style="margin-top: 5%;">
+        <div class="container mt-5 w-75 reveal">
+            <div class="row mb-5">
+                <div class="txt-ani">
+                    <h2 class="fs-1">Sea Creatures</h2>
+                    <h2 class="fs-1">Sea Creatures</h2>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col col-lg-2 col-md-4 mt-lg-5">
+                    <div class="diagrame">
+                        <img src="data.img/angelfish.webp" data-enlargable alt="angelfish.webp">
+                        <div class="overlay">
+                            <h3 class="text">angelfish</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/blowfish.webp" data-enlargable alt="blowfish.webp">
+                        <div class="overlay">
+                            <h3 class="text">blowfish</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/butterfly-fish.webp" data-enlargable alt="butterfly-fish.webp">
+                        <div class="overlay">
+                            <h3 class="text">butterfly fish</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/crab.webp" data-enlargable alt="crab.webp">
+                        <div class="overlay">
+                            <h3 class="text">simple crab</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/crab-1.webp" data-enlargable alt="crab-1.webp">
+                        <div class="overlay">
+                            <h3 class="text">crab</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/fish.webp" data-enlargable alt="fish.webp">
+                        <div class="overlay">
+                            <h3 class="text">fish</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- =====2nd===== -->
+            <div class="row ">
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/goldfish.webp" data-enlargable alt="goldfish.webp">
+                        <div class="overlay">
+                            <h3 class="text">goldfish</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/goldfish-balloon.webp" data-enlargable alt="goldfish-1.webp">
+                        <div class="overlay">
+                            <h3 class="text">goldfish</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/killer-whale.webp" data-enlargable alt="killer-whale.webp">
+                        <div class="overlay">
+                            <h3 class="text">killer whale</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/sardine.webp" data-enlargable alt="sardine.webp">
+                        <div class="overlay">
+                            <h3 class="text">sardine</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/shark.webp" data-enlargable alt="shark.webp">
+                        <div class="overlay">
+                            <h3 class="text">shark</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/whale.webp" data-enlargable alt="whale.webp">
+                        <div class="overlay">
+                            <h3 class="text">whale</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- =====end===== -->
+        </div>
+    </section>
+    <!-- =====Dinosaurs and Prehistoric creatures===== -->
+    <section style="margin-top: 5%;">
+        <div class="container mt-5 w-75 reveal">
+            <div class="row mb-5">
+                <div class="txt-ani">
+                    <h2>Prehistoric </h2>
+                    <h2>Prehistoric </h2>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col col-lg-2 col-md-4 mt-lg-5">
+                    <div class="diagrame">
+                        <img src="data.img/apatosaurus.webp" data-enlargable alt="apatosaurus.webp">
+                        <div class="overlay">
+                            <h3 class="text">apatosaurus</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/brachiosaurus.webp" data-enlargable alt="brachiosaurus.webp">
+                        <div class="overlay">
+                            <h3 class="text">brachiosaurus</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/deionychus.webp" data-enlargable alt="deionychus.webp">
+                        <div class="overlay">
+                            <h3 class="text">deionychus</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/iguanodon.webp" data-enlargable alt="iguanodon.webp">
+                        <div class="overlay">
+                            <h3 class="text">iguanodon</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/plesiosaurus.webp" data-enlargable alt="plesiosaurus.webp">
+                        <div class="overlay">
+                            <h3 class="text">plesiosaurus</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/t-rex.webp" data-enlargable alt="t-rex.webp">
+                        <div class="overlay">
+                            <h3 class="text">t-rex</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- =====end===== -->
+        </div>
+    </section>
+    <!-- =====insect===== -->
+    <section style="margin-top: 5%;">
+        <div class="container mt-5 w-75 reveal">
+            <div class="row mb-5">
+                <div class="txt-ani">
+                    <h2>Insect </h2>
+                    <h2>Insect </h2>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col col-lg-2 col-md-4 mt-lg-5">
+                    <div class="diagrame">
+                        <img src="data.img/beetle.webp" data-enlargable alt="beetle.webp">
+                        <div class="overlay">
+                            <h3 class="text">beetle</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/caterpillar.webp" data-enlargable alt="caterpillar.webp">
+                        <div class="overlay">
+                            <h3 class="text">caterpilla</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/cicada.webp" data-enlargable alt="cicada.webp">
+                        <div class="overlay">
+                            <h3 class="text text-center text-wrap">traditional cicada</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/flying-cicada.webp" data-enlargable alt="flying-cicada.webp">
+                        <div class="overlay">
+                            <h3 class="text">flying cicada</h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- =====end===== -->
+        </div>
+    </section>
+    <!-- =====HOliday===== -->
+    <section style="margin-top: 5%;">
+        <div class="container mt-5 w-75 reveal">
+            <div class="row mb-5">
+                <div class="txt-ani">
+                    <h2>Holidays</h2>
+                    <h2>Holidays</h2>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col col-lg-2 col-md-4 mt-lg-5">
+                    <div class="diagrame">
+                        <img src="data.img/bat.webp" data-enlargable alt="bat.webp">
+                        <div class="overlay">
+                            <h3 class="text">bat</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/christmas-tree.webp" data-enlargable alt="christmas-tree.webp">
+                        <div class="overlay">
+                            <h3 class="text">christmas tree</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/dracula.webp" data-enlargable alt="dracula.webp">
+                        <div class="overlay">
+                            <h3 class="text">dracula</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/grave.webp" data-enlargable alt="grave.webp">
+                        <div class="overlay">
+                            <h3 class="text">grave stone</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/santa-hat.webp" data-enlargable alt="santa-hat.webp">
+                        <div class="overlay">
+                            <h3 class="text">santa hat</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/skull.webp" data-enlargable alt="skull.webp">
+                        <div class="overlay">
+                            <h3 class="text">skull</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- =====2nd===== -->
+            <div class="row ">
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/heart-wings.webp" data-enlargable alt="heart-wings.webp">
+                        <div class="overlay">
+                            <h3 class="text">heart with wings</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/witch-hat.webp" data-enlargable alt="witch-hat.webp">
+                        <div class="overlay">
+                            <h3 class="text">witch hat</h3>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- =====end===== -->
+        </div>
+    </section>
+    <!-- =====Food and Drink===== -->
+    <section style="margin-top: 5%;">
+        <div class="container mt-5 w-75 reveal">
+            <div class="row  mb-5">
+                <div class="txt-ani">
+                    <h2 class="fs-1">Food Drink</h2>
+                    <h2 class="fs-1">Food Drink</h2>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col col-lg-2 col-md-4 mt-lg-5">
+                    <div class="diagrame">
+                        <img src="data.img/bananas.webp" data-enlargable alt="bananas.webp">
+                        <div class="overlay">
+                            <h3 class="text">bananas</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/cabbage.webp" data-enlargable alt="cabbage.webp">
+                        <div class="overlay">
+                            <h3 class="text">cabbage</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/carrot.webp" data-enlargable alt="carrot.webp">
+                        <div class="overlay">
+                            <h3 class="text">carrot</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/croissant.webp" data-enlargable alt="croissant.webp">
+                        <div class="overlay">
+                            <h3 class="text">croissant</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/cupcake.webp" data-enlargable alt="cupcake.webp">
+                        <div class="overlay">
+                            <h3 class="text">cupcake</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/icecream.webp" data-enlargable alt="icecream.webp">
+                        <div class="overlay">
+                            <h3 class="text">icecream</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- =====2nd===== -->
+            <div class="row ">
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/orange.webp" data-enlargable alt="orange.webp">
+                        <div class="overlay">
+                            <h3 class="text">orange</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/popsicle.webp" data-enlargable alt="popsicle.webp">
+                        <div class="overlay">
+                            <h3 class="text">popsicle</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/turnip.webp" data-enlargable alt="turnip.webp">
+                        <div class="overlay">
+                            <h3 class="text">turnip</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/watermelon-slice.webp" data-enlargable alt="watermelon-slice.webp">
+                        <div class="overlay">
+                            <h3 class="text">watermelon</h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- =====end===== -->
+        </div>
+    </section>
+    <!-- =====Miscellaneous===== -->
+    <section style="margin-top: 5%;">
+        <div class="container mt-5 w-75 reveal">
+            <div class="row  mb-5">
+                <div class="txt-ani">
+                    <h2 class="fs-1">Miscellaneous</h2>
+                    <h2 class="fs-1">Miscellaneous</h2>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col col-lg-2 col-md-4 mt-lg-5">
+                    <div class="diagrame">
+                        <img src="data.img/winged-balloon.webp" data-enlargable alt="winged-balloon.webp">
+                        <div class="overlay">
+                            <h3 class="text text-center text-wrap">balloon With wings</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/bell.webp" data-enlargable alt="bell.webp">
+                        <div class="overlay">
+                            <h3 class="text">bell</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/boat.webp" data-enlargable alt="boat.webp">
+                        <div class="overlay">
+                            <h3 class="text">boat</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/boat-traditional.webp" data-enlargable alt="boat-traditional.webp">
+                        <div class="overlay">
+                            <h3 class="text text-center text-wrap">traditional boat</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/box.webp" data-enlargable alt="box.webp">
+                        <div class="overlay">
+                            <h3 class="text">box</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4 mt-lg-5 ">
+                    <div class="diagrame">
+                        <img src="data.img/cactus.webp" data-enlargable alt="cactus.webp">
+                        <div class="overlay">
+                            <h3 class="text">cactus</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- =====2nd===== -->
+            <div class="row ">
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/catamaran.webp" data-enlargable alt="catamaran.webp">
+                        <div class="overlay">
+                            <h3 class="text">catamaran</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/chair.webp" data-enlargable alt="chair.webp">
+                        <div class="overlay">
+                            <h3 class="text">chair</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/cup.webp" data-enlargable alt="cup.webp">
+                        <div class="overlay">
+                            <h3 class="text">cup</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/iris.webp" data-enlargable alt="iris.webp">
+                        <div class="overlay">
+                            <h3 class="text">iris</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/mitten.webp" data-enlargable alt="mitten.webp">
+                        <div class="overlay">
+                            <h3 class="text">mitten</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/necktie.webp" data-enlargable alt="necktie.webp">
+                        <div class="overlay">
+                            <h3 class="text">necktie</h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- =====3rd===== -->
+            <div class="row ">
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/pencil.webp" data-enlargable alt="pencil.webp">
+                        <div class="overlay">
+                            <h3 class="text">pencil</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/pinwheel.webp" data-enlargable alt="pinwheel.webp">
+                        <div class="overlay">
+                            <h3 class="text">pinwheel</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/samurai-helmet.webp" data-enlargable alt="samurai-helmet.webp">
+                        <div class="overlay">
+                            <h3 class="text">samurai helmet</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/shirt.webp" data-enlargable alt="shirt.webp">
+                        <div class="overlay">
+                            <h3 class="text">shirt</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/star-box.webp" data-enlargable alt="star-box.webp">
+                        <div class="overlay">
+                            <h3 class="text">star box</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/table.webp" data-enlargable alt="table.webp">
+                        <div class="overlay">
+                            <h3 class="text">table</h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- =====2nd===== -->
+            <div class="row ">
+                <div class="col col-lg-2 col-md-4 ">
+                    <div class="diagrame">
+                        <img src="data.img/tuxedo.webp" data-enlargable alt="tuxedo.webp">
+                        <div class="overlay">
+                            <h3 class="text">tuxedo</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-2 col-md-4  ">
+                    <div class="diagrame">
+                        <img src="data.img/water-bomb.webp" data-enlargable alt="water-bomb.webp">
+                        <div class="overlay">
+                            <h3 class="text">water bomb</h3>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- =====end===== -->
+        </div>
+    </section>
+    <section class="img reveal" style="margin-top: 10%;overflow: hidden;">
+        <div style="width: 100%; ">
+            <div class="container w-50 d-flex align-content-center justify-content-center">
+                <img src="data.img/EyesFort.gif" style="width: 100%;height: auto;" alt="EyesFort">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class=" text-center mt-5 " style="background-color:#ff9349;border-radius: 52% 48% 0% 0% / 14% 13% 10% 10%;">
+        <!-- Grid container -->
+        <div class="container p-4 ">
+
+            <section class="mb-4">
+                <!-- Facebook -->
+                <a class="m-1" style="background-color: transparent;border: none; cursor:pointer;" href="#!"
+                    role="button"><img src="data.img/Facebook_Circle_Filled_R.png" style="width: 3.4rem;"
+                        alt="Facebook.icon"></a>
+
+                <!-- Twitter -->
+                <a class="m-1" style="background-color: transparent;border: none; cursor:pointer;" href="#!"
+                    role="button"><img src="data.img/Twitter_Box_Hollow_R Shadowless.png" style="width: 3.4rem;"
+                        alt="Twitter.icon"></a>
+
+                <!-- Instagram -->
+                <a class="m-1" style="background-color: transparent;border: none; cursor:pointer;" href="#!"
+                    role="button"><img src="data.img/Instagram_Box_Filled_L Shadowless.png" style="width: 3.4rem;"
+                        alt="Instagram.icon"></a>
+
+                <!-- Linkedin -->
+                <a class="m-1" style="background-color: transparent;border: none; cursor:pointer;" href="#!"
+                    role="button"><img src="data.img/Linkedin_Filled_R Shadowless.png" style="width: 3.4rem;"
+                        alt="Linkedin.icon"></a>
+                <!-- Youtube -->
+
+                <a class="m-1" style="background-color: transparent;border: none; cursor:pointer;" href="#!"
+                    role="button"><img src="data.img/YouTube_Mark_Hollow_R.png" style="width: 3.4rem;"
+                        alt="YouTube.icon"></a>
+                <!-- pinteres-->
+                <a class="m-1" style="background-color: transparent;border: none; cursor:pointer;" href="#!"
+                    role="button"><img src="data.img/Pinterest_Hollow_R.png" style="width: 3.4rem;"
+                        alt="Pinterest.icon"></a>
+            </section>
+            <section class="mt-1">
+                <!--Grid row-->
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4 mb-md-0" style="text-align: center;">
+                        <h1 class="fs-2">
+                            Origami-The Paper Folding Art
+                        </h1>
+                        <p class="fs-6">Life is full of creativity and fun if you know the art of origami. <span><img
+                                    src="data.img/foot1.png" style="width: 3rem;" alt="About1"></span></p>
+                        <img src="data.img/About1.gif" style="width: 60%;" alt="About1">
+                    </div>
+
+
+
+                    <div class="col-lg-4 col-md-6 mb-4 mb-md-0"
+                        style="background-image: url(data.img/ff2.gif); background-size: 70% 100%; background-repeat: no-repeat; background-position: center;">
+                        <h5 class="text-uppercase">Navigation</h5>
+
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="AboutUs.html" class="text-dark text-decoration-none fs-6">About</a>
+                            </li>
+                            <li>
+                                <a href="kidsori.html" class="text-dark text-decoration-none fs-6">Instructions</a>
+                            </li>
+                            <li>
+                                <a href="easyori.html" class="text-dark text-decoration-none fs-6">Easy Origami</a>
+                            </li>
+                            <li>
+                                <a href="diagrame.html" class="text-dark text-decoration-none fs-6">Diagrams</a>
+                            </li>
+                            <li>
+                                <a href="blog.html" class="text-dark text-decoration-none fs-6">Blogs And Showcase</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-md-pt-2 mb-4 mb-md-0"
+                        style="background-image: url(data.img/ff4.webp); background-size: 70% 100%; background-repeat: no-repeat; background-position: center;">
+                        <h5 class="text-uppercase">Contact</h5>
+
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="#!" class="text-dark text-decoration-none fs-6"></a>
+                            </li>
+                            <li>
+                                <a href="Contact.html" class="text-dark text-decoration-none fs-6">Contact Us</a>
+                            </li>
+                            <li>
+                                <a href="Feed-back.html" class="text-dark text-decoration-none fs-6">Feedback</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-dark text-decoration-none fs-6"><img
+                                        src="data.img/ori-foot2.png" style="width: 5rem;" alt="ori-foot2"></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center p-3 text-wrap" style="background-color: rgba(0, 0, 0, 0.2)">
+            Copyright © <span id="year">2023</span>:
+            <a class="text-dark" href="index.html">“OrigamiForAll”.com <span><img src="data.img/copy-r.png"
+                        style="width: 4rem;" alt="icon"></span></a>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

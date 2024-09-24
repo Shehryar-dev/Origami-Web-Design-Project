@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Origami Home Page</title>
+  
+  <!-- icon -->
+  <link rel="icon" href="data.img/icon.png">
+  <!-- bootstrap cdn -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <!-- jquery cdn -->
+  <script async src="js/jquery.min.js"></script>
+  <script defer src="js/reavel.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@700&family=Kalam:wght@400;700&family=Pacifico&family=Poppins:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,700&display=swap');
+
+/* .fffff */
+    .loading * {
+      display: none;
+    }
+
+    .dots-loader:not(:required) {
+      opacity: 1;
+      overflow: hidden;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -4px;
+      margin-top: -4px;
+      text-indent: -9999px;
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: transparent;
+      border-radius: 100%;
+      box-shadow: #e15b64 -14px -14px 0 7px, #f47e60 14px -14px 0 7px, #f8b26a 14px 14px 0 7px, #abbd81 -14px 14px 0 7px;
+      animation: dots-loader 5s infinite ease-in-out;
+      transform-origin: 50% 50%;
+      transform: scale(1);
+      transition: .3s all;
+    }
+
+    @keyframes dots-loader {
+      0% {
+        box-shadow: #e15b64 -14px -14px 0 7px, #f47e60 14px -14px 0 7px, #f8b26a 14px 14px 0 7px, #abbd81 -14px 14px 0 7px;
+      }
+
+      8.33% {
+        box-shadow: #e15b64 14px -14px 0 7px, #f47e60 14px -14px 0 7px, #f8b26a 14px 14px 0 7px, #abbd81 -14px 14px 0 7px;
+      }
+
+      16.67% {
+        box-shadow: #e15b64 14px 14px 0 7px, #f47e60 14px 14px 0 7px, #f8b26a 14px 14px 0 7px, #abbd81 -14px 14px 0 7px;
+      }
+
+      25% {
+        box-shadow: #e15b64 -14px 14px 0 7px, #f47e60 -14px 14px 0 7px, #f8b26a -14px 14px 0 7px, #abbd81 -14px 14px 0 7px;
+      }
+
+      33.33% {
+        box-shadow: #e15b64 -14px -14px 0 7px, #f47e60 -14px 14px 0 7px, #f8b26a -14px -14px 0 7px, #abbd81 -14px -14px 0 7px;
+      }
+
+      41.67% {
+        box-shadow: #e15b64 14px -14px 0 7px, #f47e60 -14px 14px 0 7px, #f8b26a -14px -14px 0 7px, #abbd81 14px -14px 0 7px;
+      }
+
+      50% {
+        box-shadow: #e15b64 14px 14px 0 7px, #f47e60 -14px 14px 0 7px, #f8b26a -14px -14px 0 7px, #abbd81 14px -14px 0 7px;
+      }
+
+      58.33% {
+        box-shadow: #e15b64 -14px 14px 0 7px, #f47e60 -14px 14px 0 7px, #f8b26a -14px -14px 0 7px, #abbd81 14px -14px 0 7px;
+      }
+
+      66.67% {
+        box-shadow: #e15b64 -14px -14px 0 7px, #f47e60 -14px -14px 0 7px, #f8b26a -14px -14px 0 7px, #abbd81 14px -14px 0 7px;
+      }
+
+      75% {
+        box-shadow: #e15b64 14px -14px 0 7px, #f47e60 14px -14px 0 7px, #f8b26a 14px -14px 0 7px, #abbd81 14px -14px 0 7px;
+      }
+
+      83.33% {
+        box-shadow: #e15b64 14px 14px 0 7px, #f47e60 14px -14px 0 7px, #f8b26a 14px 14px 0 7px, #abbd81 14px 14px 0 7px;
+      }
+
+      91.67% {
+        box-shadow: #e15b64 -14px 14px 0 7px, #f47e60 14px -14px 0 7px, #f8b26a 14px 14px 0 7px, #abbd81 -14px 14px 0 7px;
+      }
+
+      100% {
+        box-shadow: #e15b64 -14px -14px 0 7px, #f47e60 14px -14px 0 7px, #f8b26a 14px 14px 0 7px, #abbd81 -14px 14px 0 7px;
+      }
+    }
+
+    .loaded .dots-loader {
+      opacity: 0;
+      z-index: -1;
+      pointer-events: none;
+      transform: scale(0);
+    }
+
+    /* .fffff */
+
+    * {
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+    
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+
+
+    }
+
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      background-color: #F5F5F5;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+      background-color: #F5F5F5;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #AAA;
+      border-radius: 10px;
+      background-image: -webkit-linear-gradient(90deg,
+          rgba(0, 0, 0, .2) 25%,
+          transparent 25%,
+          transparent 50%,
+          rgba(0, 0, 0, .2) 50%,
+          rgba(0, 0, 0, .2) 75%,
+          transparent 75%,
+          transparent)
+    }
+
+    .carousel-item {
+      height: 100vh;
+      min-height: 300px;
+    }
+
+    .carousel-caption {
+      z-index: 2;
+      bottom: 40%;
+
+    }
+
+
+    .carousel-inner::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+
+    .scrolling-navbar {
+      transition: 1.2s ease;
+    }
+
+    .nav-effect {
+      transform: scale(0.9);
+      transition: 1s ease;
+      font-weight: 500;
+    }
+
+    .nav-effect:hover {
+      opacity: 0.9;
+      transform: scale(1);
+      text-shadow: 1px 1px 2px #FF5F1F, 0 0 2px #f57b0076, 0 0 5px #f57b0079;
+    }
+
+    /* button */
+    #button {
+      display: inline-block;
+      background-color: #F57C00;
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      border-radius: 4px;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      transition: .3s,
+        .5s, .5s;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 1000;
+    }
+
+    #button::after {
+      content: "";
+      font-weight: normal;
+      line-height: 50px;
+      color: #fff;
+    }
+
+    #button i {
+      font-size: 2em;
+      background-color: transparent;
+      color: white;
+
+
+    }
+
+    #button:hover {
+      cursor: pointer;
+      background-color: #aaa;
+    }
+
+    #button:active {
+      background-color: #FF5F1F;
+    }
+
+    #button.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .fs-leter {
+
+      font-family: 'Pacifico', cursive;
+      font-size: calc(60px + 0.75vw);
+      line-height: 0.72;
+      float: left;
+      padding: 8px 8px 0 5px;
+      color: #F57C00;
+    }
+
+    .btn-edit {
+      border-radius: 5px;
+      background-color: #3D3C3A;
+      box-shadow: 0 2px 0 3px #3d3c3a76;
+      transition: all 1s ease-in-out;
+    }
+
+    .btn-edit:hover {
+      box-shadow: 0 0 0 12px #3D3C3A;
+      border-radius: 2%/10%;
+    }
+
+    @media (max-width:768px) {
+      .carousel-caption {
+        bottom: 39%;
+
+      }
+    }
+
+    @media (max-width:400px) {
+      .carousel-caption {
+        bottom: 25%;
+      }
+
+      #button {
+        bottom: 12%;
+        right: 20px;
+      }
+    }
+
+    .reveal {
+      position: relative;
+      transform: translateY(150px);
+      opacity: 0;
+      transition: all 2s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  </style>
+</head>
+
+<body class="loading">
+
+  <nav class="navbar navbar-expand-lg navbar-light fs-5 fixed-top scrolling-navbar" style="background-color: #f8f9fa;">
+    <div class="container p-2">
+      <a class="navbar-brand Fw-bolder text-decoration-underline p-1" href="index.html"><img src="data.img/logoFor1.png"
+          style="width: 16vmax;" alt="logo.icon"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav m-auto p-2">
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-effect dropdown-toggle " href="Starthere.html" id="navbarDropdownMenuLink"
+              role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Start here!
+            </a>
+            <ul class="dropdown-menu dropdown-menu-light bg-light" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="Starthere.html">Beginners-level</a></li>
+              <li><a class="dropdown-item" href="Advanced level.html">Advance-level</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-effect" href="AboutUs.html">About</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-effect dropdown-toggle" href="kidsori.html" id="navbarDropdownMenuLink" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Instructions
+            </a>
+            <ul class="dropdown-menu dropdown-menu-light bg-light" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item " href="kidsori.html">Origami For Kids</a></li>
+              <li><a class="dropdown-item" href="Crane-intro.html">Traditional Origami Crane</a></li>
+              <li><a class="dropdown-item" href="easyori.html">Easy Origami </a></li>
+              <li><a class="dropdown-item" href="diagrame.html">Diagrams</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-effect" href="blog.html">Blog & Showcase</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link nav-effect" href="Contact.html">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="dots-loader">
+  </div>
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="data.img/bg (3).gif" class="d-block w-100" style="width: 100%; height: 100%;" alt="...">
+        <div class="carousel-caption">
+          <h1 class="fw-bolder">Origami-The Paper Folding Art</h1>
+          <p class="fw-bold fs-6">Twist, turn and fold the papers and you can have a beautiful world around you with
+            origami.</p>
+        </div>
+      </div>
+      <div class="carousel-item ">
+        <img src="data.img/bg (2).gif" class="d-block w-100" style="width: 100%; height: 100%;" alt="...">
+        <div class="carousel-caption ">
+          <h1 class="fw-bolder">Origami-The Paper Folding Art</h1>
+          <p class="fw-bold fs-6">Enjoy the art of origami that lets you use your ideas and innovation..</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="data.img/bg (4).gif" class="d-block w-100" style="width: 100%; height: 100%;" alt="...">
+        <div class="carousel-caption ">
+          <h1 class="fw-bolder">Origami-The Paper Folding Art</h1>
+          <p class="fw-bold fs-6">Life is full of creativity and fun if you know the art of origami.</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <a id="button"><i class="bi bi-rocket"></i></a>
+  <section style="margin-top: 10%;">
+    <div class="container mt-5 reveal ">
+      <div class="card col-md-12 p-3 m-1" style="border: none;">
+        <div class="row ">
+          <div class="col-md-8">
+            <div class="card-block">
+              <h2 class="card-title text-right fs-1 fw-bold">A Brief History of Origami</h2>
+              <p class="card-text text-justify fs-4" style="line-height: 1.6;"><Span class="fs-leter">S</Span>ince paper
+                degrades as it ages, it is hard to come up with an exact timeline for the invention of origami. It is
+                generally accepted that paper was invented around 105 A.D. in <span class="fw-bold">China</span>. The
+                Japanese first used paper during the sixth century. It is true that <span class="fw-bold">other cultures
+                  engaged in various forms of paper folding</span>, but it was the Japanese who first discovered the
+                possibilities associated with using paper as a medium for art.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <img class="w-100" src="data.img/descrip3.jpg">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="h-100 w-100" style="margin-top: 5%;">
+    <div class="container mt-5 reveal">
+      <div class="row">
+        <div class="col h-100 text-center">
+          <h1 class="fw-bold">Folding Your First Model, the Traditional Origami
+            Crane
+          </h1>
+          <p class="fs-4" style="text-align: justify;line-height: 1.6;"><span class="fs-leter">F</span>olding Your First
+            Model, the Traditional Origami Crane
+            Once you’ve got the hang of all the above folds and bases you’re more than ready to fold the traditional
+            paper crane. The crane will start off with a bird base and after that most of the work is already done.
+            This
+            is probably the most famous model in origami and is the first thing I learned how to fold.
+          </p>
+          <p class="mb-3 fs-4">According to legend if you fold a thousand of these you get a ton of good luck or
+            you're
+            granted a wish.</p>
+          <button class="btn btn-lg  btn-edit mt-5 text-uppercase"><a href="Crane-intro.html"
+              class="text-decoration-none  text-light">Click Here for the paper crane
+              Instructions</a></button>
+        </div>
+      </div>
+      <div class="row mt-4 ">
+        <img src="data.img/paper-cranes.webp" class="w-100" alt="">
+      </div>
+    </div>
+
+  </section>
+  <div class="section p-2" style="width: 100%;height: 100%; background-color: #fffffc;">
+    <div class="container mt-5 reveal">
+      <div class="row text-center">
+        <div class="col">
+          <h1 style=" font-weight: 700;">Learn How to Make Origami</h1>
+          <p class="fs-5">If you’ve never tried paper folding before and you want to get started then check our our
+            Beginner’s Guide.</p>
+          <p class="mt-2 fs-5">This guide will teach you all the basic folds, the basic bases that form the foundation
+            for most models and finally it’ll walk you through folding your first model, the traditional paper crane.
+          </p>
+          <img src="data.img/origami-diagrams.webp" class="mt-3" style="width: 100%;" alt="Diagrame">
+          <button type="button" class="btn btn-lg  btn-edit mt-5 text-uppercase"><a href="Starthere.html"
+              class="text-decoration-none  text-light">Start Learning How To Fold Here</a></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="img reveal" style="margin-top: 10%;overflow: hidden;">
+    <div style="width: 100%; ">
+      <div class="container w-50 d-flex align-content-center justify-content-center">
+        <img src="data.img/EyesFort.gif" style="width: 100%;height: auto;" alt="EyesFort">
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class=" text-center mt-5 " style="background-color:#ff9349;border-radius: 52% 48% 0% 0% / 14% 13% 10% 10%;">
+    <div class="container p-4 ">
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a class="m-1" style="background-color: transparent;border: none; cursor: pointer;" href="#!" role="button"><img
+            src="data.img/Facebook_Circle_Filled_R.png" style="width: 3.4rem;" alt="Facebook.icon"></a>
+
+        <!-- Twitter -->
+        <a class="m-1" style="background-color: transparent;border: none; cursor: pointer;" href="#!" role="button"><img
+            src="data.img/Twitter_Box_Hollow_R Shadowless.png" style="width: 3.4rem;" alt="Twitter.icon"></a>
+
+        <!-- Instagram -->
+        <a class="m-1" style="background-color: transparent;border: none; cursor: pointer;" href="#!" role="button"><img
+            src="data.img/Instagram_Box_Filled_L Shadowless.png" style="width: 3.4rem;" alt="Instagram.icon"></a>
+
+        <!-- Linkedin -->
+        <a class="m-1" style="background-color: transparent;border: none; cursor: pointer;" href="#!" role="button"><img
+            src="data.img/Linkedin_Filled_R Shadowless.png" style="width: 3.4rem;" alt="Linkedin.icon"></a>
+        <!-- Youtube -->
+
+        <a class="m-1" style="background-color: transparent;border: none; cursor: pointer;" href="#!" role="button"><img
+            src="data.img/YouTube_Mark_Hollow_R.png" style="width: 3.4rem;" alt="YouTube.icon"></a>
+        <!-- pinteres-->
+        <a class="m-1" style="background-color: transparent;border: none; cursor: pointer;" href="#!" role="button"><img
+            src="data.img/Pinterest_Hollow_R.png" style="width: 3.4rem;" alt="Pinterest.icon"></a>
+      </section>
+      <section class="mt-1">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4 mb-md-0" style="text-align: center;">
+            <h1 class="fs-2">
+              Origami-The Paper Folding Art
+            </h1>
+            <p class="fs-6">Life is full of creativity and fun if you know the art of origami. <span><img
+                  src="data.img/foot1.png" style="width: 3rem;" alt="About1"></span></p>
+            <img src="data.img/About1.gif" style="width: 60%;" alt="About1">
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4 mb-md-0"
+            style="background-image: url(data.img/ff2.gif); background-size: 70% 100%; background-repeat: no-repeat; background-position: center;">
+            <h5 class="text-uppercase">Navigation</h5>
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a href="AboutUs.html" class="text-dark text-decoration-none fs-6">About</a>
+              </li>
+              <li>
+                <a href="kidsori.html" class="text-dark text-decoration-none fs-6">Instructions</a>
+              </li>
+              <li>
+                <a href="easyori.html" class="text-dark text-decoration-none fs-6">Easy Origami</a>
+              </li>
+              <li>
+                <a href="diagrame.html" class="text-dark text-decoration-none fs-6">Diagrams</a>
+              </li>
+              <li>
+                <a href="blog.html" class="text-dark text-decoration-none fs-6">Blogs And Showcase</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 col-md-pt-2 mb-4 mb-md-0"
+            style="background-image: url(data.img/ff4.webp); background-size: 70% 100%; background-repeat: no-repeat; background-position: center;">
+            <h5 class="text-uppercase">Contact</h5>
+
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a href="#!" class="text-dark text-decoration-none fs-6"></a>
+              </li>
+              <li>
+                <a href="Contact.html" class="text-dark text-decoration-none fs-6">Contact Us</a>
+              </li>
+              <li>
+                <a href="Feed-back.html" class="text-dark text-decoration-none fs-6">Feedback</a>
+              </li>
+              <li>
+                <a href="#!" class="text-dark text-decoration-none fs-6"><img src="data.img/ori-foot2.png"
+                    style="width: 5rem;" alt="ori-foot2"></a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center p-2 text-wrap" style="background-color: rgba(0, 0, 0, 0.2)">
+      Copyright © <span id="year">2023</span>:
+      <a class="text-dark" href="index.html">“OrigamiForAll”.com <span><img src="data.img/copy-r.png"
+            style="width: 4rem;" alt=""></span></a>
+    </div>
+  </footer>
+</body>
+
+</html>
